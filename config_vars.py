@@ -19,10 +19,10 @@ def set_heroku_vars(token_name='EARTHENGINE_TOKEN'):
             with open(ee_token_file) as f:
                 content = f.read()
                 token = content.split(':')[1].strip()[1:-2]
-                # if platform.system() == 'Linux':
-                #     token = content.split(':')[1][1:-3]
-                # else:
-                #     token = content.split(':')[1][2:-2]
+                if platform.system() == 'Linux':
+                    token = "4/1AY0e-g5alZHjREet-FoJWyyCQCTsfdYfiPcbQv0H4xwqj33Vf3jkEdx9uZk"
+                else:
+                    token = "4/1AY0e-g5alZHjREet-FoJWyyCQCTsfdYfiPcbQv0H4xwqj33Vf3jkEdx9uZk"
                 secret = '{}={}'.format(token_name, token)
                 if platform.system() == 'Windows':
                     check_call(['heroku', 'config:set', secret], stdout=DEVNULL, stderr=STDOUT, shell=True)
